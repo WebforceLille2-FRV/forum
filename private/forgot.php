@@ -1,5 +1,11 @@
 
-<?php include 'database.php'; ?>
+<?php
+ include 'header.php'; 
+ include 'database.php'; 
+ 
+  
+ 
+?>
 <?php if(isset($_GET['token'])){
     
     $token = trim($_GET['token']);
@@ -11,11 +17,11 @@
     if($user = $q->fetch()){
         // tester si le token est valide
         if(time() - substr($user['token'],32) <= 86400){ ?>
-        <form action="" method="POST">
-            <label for="password">Password:</label><br />
-            <input type="password" name="password"><br />
-            <label for="password">Retapez le password:</label><br />
-            <input type="password" name="password-cf"><br />
+        <form action="" method="POST" class="form" >
+            <label for="password">Password:</label>
+            <input type="password" name="password">
+            <label for="password">Retapez le password:</label>
+            <input type="password" name="password-cf">
             <button name="forget">Redefinir mon mot de passe</button>
         </form>      
         <?php if(isset($_POST['forget'])){

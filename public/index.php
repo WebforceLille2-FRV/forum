@@ -1,29 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style_forum.css">
-	<title>Forum</title>
-</head>
-<body class="row">
-<main class="container-fluid">
-	<header>
-		<div class="col-lg-2
-				    block01">
-			<img src="img/logo.png" alt="logo" width="155px" height="150px">
-		</div>
-		<div class="col-lg-5
-					block02">
-			<h1> Forum For Real V...</h1>
-			<h3>Slogan</h3>
-		</div>
-		<div class="col-lg-5
-					block03">
-				<!--<img src="img/forum.png" alt="logo" width="600px" height="130px">-->
-		</div>
-	</header>
+<?php 
+require_once '../private/header.php';
+ ?>
 <!--
 	<nav>
 		<ul>
@@ -38,11 +15,14 @@
 
 <form action="../private/register.php" method="POST"
 	  class="col-lg-2">
+	  <h2>Register</h2>
 	<label for="username">Name    : <input type="text" name="username" id="username"/></label>
 	<label for="email">   Email    : <input type="email" name="email" id="email"/></label>
 	<label for="password">Password : <input type="password" name="password" id="password"/></label>
 	<button type="submit" name="submit">S'inscrire</button>
+	<p class="col-lg-8"><a href="../private/forgot.php">Mot de passe oublié ?</a></p>
 </form>
+
 
 </main>
 	<script src="js/jquery-3.1.1.min.js"></script>
