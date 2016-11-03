@@ -17,7 +17,7 @@
     if($user = $q->fetch()){
         // tester si le token est valide
         if(time() - substr($user['token'],32) <= 86400){ ?>
-        <form action="" method="POST" class="form" >
+        <form action="" method="POST" class="form" class="col-lg-2">
             <label for="password">Password:</label>
             <input type="password" name="password">
             <label for="password">Retapez le password:</label>
