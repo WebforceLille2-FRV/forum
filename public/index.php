@@ -36,7 +36,7 @@
 	</nav>
 -->
 
-<form action="register.php" method="POST"
+<form action="../private/register.php" method="POST"
 	  class="col-lg-2">
 	<label for="username">Name    : <input type="text" name="username" id="username"/></label>
 	<label for="email">   Email    : <input type="email" name="email" id="email"/></label>

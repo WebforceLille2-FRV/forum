@@ -9,7 +9,7 @@
     $db = new PDO("mysql:host=".HOST. ";dbname=".DBNAME, LOGIN , PASSWORD , $options);
     // Fichier contenant toutes les fonctions PHP de notre site
     include 'functions.php';
-    
+    //var_dump($db);
     //setcookie("id",1, time()+3600,"/");
     //mail('webforce3@20mail.eu', "Sujet", "Message");
     if(isset($_SESSION['user'])){

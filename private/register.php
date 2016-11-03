@@ -1,8 +1,9 @@
 <?php 
 
-include '../private/database.php';
+include 'database.php';
+var_dump($db);
 function register(){
-
+global $db;
 	if(isset($_POST['submit']) && !empty($_POST)){
 		// On nettoie les entrées utilisateur
 		$email     = trim(strip_tags($_POST['email']));
@@ -18,7 +19,7 @@ function register(){
 	$p->bindValue(":role"    ,"user"    ,PDO::PARAM_STR);
 	
 		if($p->execute()){
-			header('Location:index.php');
+			header('Location:../public/index.php');
 			echo 'inscription validée';
 		} // Fermeture If
 	} // Fermeture isset Submit et !empty Post
