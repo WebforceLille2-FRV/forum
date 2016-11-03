@@ -17,7 +17,7 @@
     //mail('webforce3@20mail.eu', "Sujet", "Message");
 
     if(isset($_SESSION['user'])){
-        $currentUser = $db->query("SELECT email FROM user where id =".$_SESSION['user'])->fetch();
+        $currentUser = $db->query("SELECT email FROM users where id =".$_SESSION['user'])->fetch();
         var_dump($_SESSION['user']); ?>
         <a href="logout.php">Se déconnecter</a>
         <?php
