@@ -38,9 +38,10 @@
 
 <form action="register.php" method="POST"
 	  class="col-lg-2">
-	<label for="email">   Email : <input type="text" name="email" id="email"/></label>
+	<label for="username">Name    : <input type="text" name="username" id="username"/></label>
+	<label for="email">   Email    : <input type="text" name="email" id="email"/></label>
 	<label for="password">Password : <input type="password" name="password" id="password"/></label>
-	<button type="submit">S'inscrire</button>
+	<button type="submit" name="submit">S'inscrire</button>
 </form>
 
 </main>
