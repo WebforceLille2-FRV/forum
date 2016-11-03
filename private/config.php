@@ -2,8 +2,8 @@
 
   
     define("HOST", "localhost"); 
-    define("LOGIN", "");
-    define("DB", ""); 
+    define("LOGIN", "root");
+    define("DB", "forum"); 
     define("PASSWORD", ""); 
 
 
