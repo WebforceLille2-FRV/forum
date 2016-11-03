@@ -21,7 +21,7 @@ global $db;
 		if($p->execute()){
 			header('Location:../public/index.php');
 			echo 'inscription validée';
-		} // Fermeture If
+		} // Fermeture If 
 	} // Fermeture isset Submit et !empty Post
 }
 
