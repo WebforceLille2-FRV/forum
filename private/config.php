@@ -1,10 +1,8 @@
 <?php
 
-  
-    define("HOST", "localhost"); 
-    define("LOGIN", "root");
-    define("DB", "forum"); 
-    define("PASSWORD", ""); 
-
+define('HOST', 'localhost');
+define('DBNAME', 'forum');
+define('LOGIN', 'root');
+define('PASSWORD', '');
 
 ?>
