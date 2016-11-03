@@ -1,6 +1,6 @@
 <?php 
 
-include 'database.php';
+include 'database.php'; 
 var_dump($db);
 function register(){
 global $db;
