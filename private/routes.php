@@ -1,10 +1,12 @@
 <?php 
 
-	require 'vendor/autoload.php';
+	require '../vendor/autoload.php';
 
 	$router = new AltoRouter();
 
-	$router->setBasePath('/01_PHP/07_composer');
+	$router->setBasePath('/01_PHP/14-ForumPHP/forum');
+	//$router->setBasePath('/01_PHP/07_composer'); // FRED
+	//$router->setBasePath('/01_PHP/07_composer'); // ROBIN
 
 	$router->map( 'GET', '/', function() {
     echo "Page accueil";
