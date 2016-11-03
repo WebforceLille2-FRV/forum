@@ -1,0 +1,72 @@
+/*---------- BODY-------------------*/
+body{
+	background-color: ;
+	margin: 0;
+}
+
+/*---------- HEADER-------------------*/
+header{
+	background-color: rgba(10, 140, 255,0.5);
+	width: 100%;
+	height: 160px;
+	display: flex;
+}
+
+header div{
+	
+}
+
+header div.block01{
+background: url('../img/logo.png')no-repeat;
+width: 15%;
+background-size: 60%;
+background-position: 25% 17%;
+color: black;
+}
+
+header div.block02{
+	width: 35%;
+	margin-left: -3%;
+}
+
+header div.block02 h1{
+	width: 100%;
+	margin-top: 6%;
+	margin-bottom: -2%;
+
+}
+
+header div.block02 h3{
+	width: 55%;
+}
+
+header div.block03{
+	width: 50%;
+	height: 138px;
+	margin-left: 3%;
+	background: grey;
+}
+
+/*---------- NAV-------------------*/
+nav{
+	margin-top: -1.5%;
+	border-style: solid;
+	background: yellow;
+	width: 100%;
+	height: 40px;
+}
+nav ul{
+
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	border-style: solid;
+}
+
+nav ul li{
+	border-style: solid;
+	width: 25%;
+	height: 40px;
+
+	
+}
