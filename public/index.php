@@ -1,35 +1,24 @@
 <?php 
-require_once '../private/header.php';
+// On utilise les sessions
+session_start();
+// Ce fichier est l'autoload de composer
+require '../vendor/autoload.php';
+// Ce fichier contient toutes nos routes
+require '../private/routes.php';
+// Connexion à la base de données
+require '../private/database.php';
+require '../private/functions.php';
+// On instancie l'objet altorouter
+$router = new AltoRouter();
+$router->setBasePath("/01_PHP/14-ForumPHP/forum/public");
+// On ajoute nos routes dans altorouter
+$router->addRoutes($routes);
+$match = $router->match();
+if( $match && is_callable( $match['target'] ) ) {
+    // Toutes les fonctions PHP de notre forum
+	call_user_func_array( $match['target'], $match['params'] );
+} else {
+	// no route was matched
+	header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
+}
  ?>
-<!--
-	<nav>
-		<ul>
-			<li>01</li>
-			<li>01</li>
-			<li>01</li>
-			<li>01</li>
-			<li>01</li>
-		</ul>
-	</nav>
--->
-
-<form action="../private/register.php" method="POST"
-	  class="col-lg-2">
-	  <h2>Register</h2>
-	<label for="username">Name    : <input type="text" name="username" id="username"/></label>
-	<label for="email">   Email    : <input type="email" name="email" id="email"/></label>
-	<label for="password">Password : <input type="password" name="password" id="password"/></label>
-	<button type="submit" name="submit">S'inscrire</button>
-	<p class="col-lg-8"><a href="../private/forgot.php">Mot de passe oublié ?</a></p>
-</form>
-
-
-</main>
-
-<footer class="container-fluid">
-	<p>FOOTER</p>
-</footer>
-	<script src="js/jquery-3.1.1.min.js"></script>
-	<script src="js/main.js"></script>
-</body>
-</html>

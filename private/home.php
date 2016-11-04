@@ -1,8 +1,5 @@
 <?php
 
-    include 'database.php';
-    require_once 'functions.php';
-
     foreach(getCategory() as $category){?>
         
         <div class="category<?php echo $category['id'];?>">
