@@ -10,7 +10,7 @@ require '../private/database.php';
 require '../private/functions.php';
 // On instancie l'objet altorouter
 $router = new AltoRouter();
-$router->setBasePath("/01_PHP/14-ForumPHP/forum/public");
+$router->setBasePath("/php/wf3/forum/forum/public");
 // On ajoute nos routes dans altorouter
 $router->addRoutes($routes);
 $match = $router->match();

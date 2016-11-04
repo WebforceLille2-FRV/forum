@@ -9,6 +9,8 @@
 
 <?php 
 include 'database.php';
+include 'functions.php';
+/*
 if(isset($_POST['submit']) && !empty($_POST)){
 	$p = $db->prepare("SELECT * FROM users WHERE username = :username");
 	$p ->bindValue(":username",$_POST['username'],PDO::PARAM_STR);
@@ -24,6 +26,8 @@ if(isset($_POST['submit']) && !empty($_POST)){
 		echo "Mot de passe ou login incorrect.";
 	}
 } // Fermeture isset submit
+*/
+login();
 
 
 ?>

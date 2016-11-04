@@ -35,5 +35,36 @@ function getCategory(){
     return $categories;
 }
 
+function login(){
+    global $db;
+    if(isset($_POST['submit']) && !empty($_POST)){
+    $p = $db->prepare("SELECT * FROM users WHERE username = :username");
+    $p ->bindValue(":username",$_POST['username'],PDO::PARAM_STR);
+    $p->execute();
+    $rep = $p->fetch();
+
+    $hash = $rep['password']; 
+    $passVerify = password_verify($_POST['password'],$hash);
+    if($passVerify == true){
+        header('Location:../public/');
+    }
+    else{
+        if($rep['username'] != $_POST['username']){
+            echo "Login incorrect.";
+        }
+        if($rep['password'] != $_POST['password']){
+            echo "Password incorrect.";
+        }
+        if($rep['username'] != $_POST['username'] && $rep['password'] != $_POST['password']){
+            echo "Mot de passe ou login incorrect.";
+        }
+    }
+} // Fermeture isset submit
+}
+
+
+
+
+
 
 ?>
