@@ -1,6 +1,7 @@
 <?php
 $routes = array(
     array('GET', '/', function(){
+        global $db, $router;
         include '../private/header.php';
         include '../private/home.php';
         include '../private/footer.php';
@@ -25,12 +26,13 @@ $routes = array(
         include '../private/footer.php';
     }, 'logout'),
     
-    array('GET', '/category/[i:id]', function(){
-        global $db;
+    array('GET', '/category/[*:slug]', function($slug){
+        global $db, $router;
         include '../private/header.php';
-        include '../private/register.php';
+        include '../private/category.php';
         include '../private/footer.php';
     }, 'category'),    
+    
     array('GET', '/forum/[i:id]', function($id, $b){ echo $id . " ".$b; }, 'forum'),
     array('GET', '/profil', function(){ $_SESSION['id'] = 2; var_dump($_SESSION); }, 'profil')
 );
