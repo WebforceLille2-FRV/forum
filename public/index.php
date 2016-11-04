@@ -1,51 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style_forum.css">
-	<title>Forum</title>
-</head>
-<body class="row">
-<main class="container-fluid">
-	<header>
-		<div class="col-lg-2
-				    block01">
-			<img src="img/logo.png" alt="logo" width="155px" height="150px">
-		</div>
-		<div class="col-lg-5
-					block02">
-			<h1> Forum For Real V...</h1>
-			<h3>Slogan</h3>
-		</div>
-		<div class="col-lg-5
-					block03">
-				<!--<img src="img/forum.png" alt="logo" width="600px" height="130px">-->
-		</div>
-	</header>
-<!--
-	<nav>
-		<ul>
-			<li>01</li>
-			<li>01</li>
-			<li>01</li>
-			<li>01</li>
-			<li>01</li>
-		</ul>
-	</nav>
--->
-
-<form action="../private/register.php" method="POST"
-	  class="col-lg-2">
-	<label for="username">Name    : <input type="text" name="username" id="username"/></label>
-	<label for="email">   Email    : <input type="email" name="email" id="email"/></label>
-	<label for="password">Password : <input type="password" name="password" id="password"/></label>
-	<button type="submit" name="submit">S'inscrire</button>
-</form>
-
-</main>
-	<script src="js/jquery-3.1.1.min.js"></script>
-	<script src="js/main.js"></script>
-</body>
-</html>
+<?php 
+// On utilise les sessions
+session_start();
+// Ce fichier est l'autoload de composer
+require '../vendor/autoload.php';
+// Ce fichier contient toutes nos routes
+require '../private/routes.php';
+// Connexion à la base de données
+require '../private/database.php';
+require '../private/functions.php';
+// On instancie l'objet altorouter
+$router = new AltoRouter();
+$router->setBasePath("/01_PHP/14-ForumPHP/forum/public");
+// On ajoute nos routes dans altorouter
+$router->addRoutes($routes);
+$match = $router->match();
+if( $match && is_callable( $match['target'] ) ) {
+    // Toutes les fonctions PHP de notre forum
+	call_user_func_array( $match['target'], $match['params'] );
+} else {
+	// no route was matched
+	header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
+}
+ ?>

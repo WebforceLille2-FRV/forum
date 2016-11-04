@@ -1,30 +1,30 @@
-<?php 
-
-	require '../vendor/autoload.php';
-
-	$router = new AltoRouter();
-
-	$router->setBasePath('/01_PHP/14-ForumPHP/forum');
-	//$router->setBasePath('/01_PHP/07_composer'); // FRED
-	//$router->setBasePath('/01_PHP/07_composer'); // ROBIN
-
-	$router->map( 'GET', '/', function() {
-    echo "Page accueil";
-	}, 'home');
-
-	$router->map( 'GET', '/', function() {
-    echo "Page contact";
-	}, 'contact');
-
-	$match = $router->match();
-	var_dump($match);
-
-	if($match && is_callable($match['target'])){
-		call_user_func_array($match['target'], $match['params']);
-
-	}else {
-		header($_SERVER["SERVER_PROTOCOL"]. '404 not found');
-	}
-
-
+<?php
+$routes = array(
+    array('GET', '/', function(){
+        include '../private/header.php';
+        include '../private/home.php';
+        include '../private/footer.php';
+    }, 'home'),
+    array('GET|POST', '/login', function(){
+        include '../private/header.php';
+        include '../private/login.php';
+        include '../private/footer.php';
+    }, 'login'),
+    
+    array('GET|POST', '/register', function(){
+        global $db;
+        include '../private/header.php';
+        include '../private/register.php';
+        include '../private/footer.php';
+    }, 'register'),    
+    
+    array('GET', '/logout', function(){
+        global $db;
+        include '../private/header.php';
+        include '../private/logout.php';
+        include '../private/footer.php';
+    }, 'logout'),
+    array('GET', '/forum/[i:id]', function($id, $b){ echo $id . " ".$b; }, 'forum'),
+    array('GET', '/profil', function(){ $_SESSION['id'] = 2; var_dump($_SESSION); }, 'profil')
+);
 ?>

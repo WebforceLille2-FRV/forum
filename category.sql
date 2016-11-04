@@ -23,28 +23,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `posts`
+-- Structure de la table `category`
 --
 
-CREATE TABLE `posts` (
+CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `content` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `author` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `answer` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `user_img` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `date` date NOT NULL,
-  `category` int(11) DEFAULT NULL
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `parent` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contenu de la table `category`
+--
+
+INSERT INTO `category` (`id`, `title`, `description`, `image`, `parent`) VALUES
+(1, 'Php/Mysql', 'Wanna know everything about the fucking Php and damn MySql. Bring your ass here bitch!', '', 0),
+(2, 'HTML/CSS', 'A delicate moment to remind you the best of ours times with Hugo', '', 0);
 
 --
 -- Index pour les tables exportées
 --
 
 --
--- Index pour la table `posts`
+-- Index pour la table `category`
 --
-ALTER TABLE `posts`
+ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -52,10 +57,10 @@ ALTER TABLE `posts`
 --
 
 --
--- AUTO_INCREMENT pour la table `posts`
+-- AUTO_INCREMENT pour la table `category`
 --
-ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

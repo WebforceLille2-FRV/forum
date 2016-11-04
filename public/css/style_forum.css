@@ -74,3 +74,16 @@ button{
 	margin-top: 5px;
 	margin-left: 50px;
 }
+p{
+	margin-top: 10px;
+	margin-left: 5px;
+
+}
+
+/*---------- FOOTER-------------------*/
+
+footer{
+	border-style: solid;
+}
+
+
