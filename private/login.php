@@ -1,29 +1,4 @@
-<?php 
-<<<<<<< Updated upstream
-include 'database.php'; 
-var_dump($db);
 
-
-	if(isset($_POST['submit']) && !empty($_POST)){
-		global $db;
-		// On nettoie les entrées utilisateur
-		$email     = trim(strip_tags($_POST['email']));
-		$email     = filter_var($email,FILTER_VALIDATE_EMAIL);
-		$password  = trim(strip_tags($_POST['password']));
-		//$passwordVerify = password_verify($password,PASSWORD_DEFAULT);
-
-		$p = $db->prepare("SELECT * FROM users WHERE password = :password, email = :email");
-		$p->bindValue(":password",$password,PDO::PARAM_STR);
-		$p->bindValue(":email",$email,PDO::PARAM_STR);
-		$p->execute();
-		
-		var_dump($p);
-  
-}
-=======
-require_once 'header.php';
-include 'database.php';
-?>
 <form action="login.php" method="POST">
 	  <h2>Register</h2>
 	<label for="username">Name    : <input type="text" name="username" id="username"/></label>
@@ -33,7 +8,7 @@ include 'database.php';
 </form>
 
 <?php 
-
+include 'database.php';
 if(isset($_POST['submit']) && !empty($_POST)){
 	$p = $db->prepare("SELECT * FROM users WHERE username = :username");
 	$p ->bindValue(":username",$_POST['username'],PDO::PARAM_STR);
@@ -43,23 +18,12 @@ if(isset($_POST['submit']) && !empty($_POST)){
 	$hash = $rep['password']; 
 	$passVerify = password_verify($_POST['password'],$hash);
 	if($passVerify == true){
-		echo 'It works';
-		//header('Location:index.php');
+		header('Location:../public/index.php');
 	}
-
+	else{
+		echo "Mot de passe ou login incorrect.";
+	}
 } // Fermeture isset submit
 
 
-
->>>>>>> Stashed changes
-
-
-
-
-
-
-<<<<<<< Updated upstream
-=======
-//require_once 'footer.php';
->>>>>>> Stashed changes
 ?>
