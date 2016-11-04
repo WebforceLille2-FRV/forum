@@ -36,7 +36,6 @@ function getCategory(){
     return $categories;
 }
 
-<<<<<<< HEAD
 function login(){
     global $db;
     if(isset($_POST['submit']) && !empty($_POST)){
@@ -64,10 +63,6 @@ function login(){
 } // Fermeture isset submit
 }
 
-
-
-
-=======
 // Pour remplacer tous les caracteres exotiques dans l'url
 function slug($title) {
 
@@ -91,14 +86,11 @@ function slug($title) {
 
 }
 
-
 function childCategory($id){
     global $db;
     $q = $db->query("SELECT * FROM category WHERE id =".$id);
     $subCategories = $q->fetchAll();
     return $subCategories;
 }
->>>>>>> 9be95f29452bed00419fa3cf6fbed2273412102a
-
 
 ?>

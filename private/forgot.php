@@ -89,11 +89,11 @@
                 //header pour envoyer le lien en html
                 $header = 'MIME-Version: 1.0' . "\r\n";
                 $header = 'Content-type: test/html; charset=iso-8859-1' . "\r\n";
-                mail($user['email'], "[Mon site] Mot de passe oublié", "<h1>Vous pouvez redefinir votre mot de passe <a href='http://localhost/01_PHP/14-ForumPHP/forum/private/forgot.php?token=".$token."' target=_blank> ici</a></h1>");
+                //mail($user['email'], "[Mon site] Mot de passe oublié", "<h1>Vous pouvez redefinir votre mot de passe <a href='http://localhost/01_PHP/14-ForumPHP/forum/private/forgot.php?token=".$token."' target=_blank> ici</a></h1>");
                 
                 //mail($user['email'], "[Mon site] Mot de passe oublié", "<h1>Vous pouvez redefinir votre mot de passe <a href='http://localhost/01_PHP/13-Authentification/forgotpassword.php?token=".$token."' target=_blank> ici</a></h1>"); // CONFIG FRED
                 
-                //mail($user['email'], "[Mon site] Mot de passe oublié", "<h1>Vous pouvez redefinir votre mot de passe <a href='http://localhost/01_PHP/13-Authentification/forgotpassword.php?token=".$token."' target=_blank> ici</a></h1>"); // CONFIG ROBIN
+                mail($user['email'], "[Mon site] Mot de passe oublié", "<h1>Vous pouvez redefinir votre mot de passe <a href='http://localhost/PHP/wf3/forum/forum/private/forgot.php?token=".$token."' target=_blank> ici</a></h1>"); // CONFIG ROBIN
 
 
                 $db->query("UPDATE users SET token = '".$token."' WHERE email = '".$user['email']."'");
