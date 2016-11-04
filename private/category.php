@@ -10,10 +10,10 @@
     $q2 = $db->query("SELECT * FROM category WHERE parent = '".$idCategory."'");
     $parent = $q2->fetchAll();
 
-    foreach($parent as $subCategory){?>
+    foreach($parent as $subCategory){ $title = $subCategory['title'];?>
         
         <div class="category<?php echo $subCategory['id'];?>">
-        <a href="<?php echo $router->generate('post', array('slug' => slug($title)));  ?>"><h3><?php echo $subCategory['title'];?></h3></a>
+        <a href="<?php echo $router->generate('topic', array('slug' => slug($title)));  ?>"><h3><?php echo $subCategory['title'];?></h3></a>
         
         </div>
     <?php    

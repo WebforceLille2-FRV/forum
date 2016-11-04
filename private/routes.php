@@ -33,6 +33,13 @@ $routes = array(
         include '../private/footer.php';
     }, 'category'),    
     
+    array('GET', '/topic/[*:slug]', function($slug){
+        global $db, $router;
+        include '../private/header.php';
+        include '../private/list_topics.php';
+        include '../private/footer.php';
+    }, 'topic'),    
+    
     array('GET', '/forum/[i:id]', function($id, $b){ echo $id . " ".$b; }, 'forum'),
     array('GET', '/profil', function(){ $_SESSION['id'] = 2; var_dump($_SESSION); }, 'profil')
 );
