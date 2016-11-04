@@ -24,6 +24,13 @@ $routes = array(
         include '../private/logout.php';
         include '../private/footer.php';
     }, 'logout'),
+    
+    array('GET', '/category/[i:id]', function(){
+        global $db;
+        include '../private/header.php';
+        include '../private/register.php';
+        include '../private/footer.php';
+    }, 'category'),    
     array('GET', '/forum/[i:id]', function($id, $b){ echo $id . " ".$b; }, 'forum'),
     array('GET', '/profil', function(){ $_SESSION['id'] = 2; var_dump($_SESSION); }, 'profil')
 );
