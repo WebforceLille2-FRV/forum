@@ -1,14 +1,19 @@
 <?php
 
 /*Ici on va afficher les categories de la categorie principale ex: PHP/MySql -> PHP7*/
+ echo $slug;
 
-var_dump($slug);
+    $q = $db->query("SELECT id FROM category WHERE slug = '".$slug."'");
+    $idCategory = $q->fetchColumn();
+    
+    
+    $q2 = $db->query("SELECT * FROM category WHERE parent = '".$idCategory."'");
+    $parent = $q2->fetchAll();
 
-
-    foreach(childCategory() as $category){ $title = $category['title'];?>
+    foreach($parent as $subCategory){?>
         
-        <div class="category<?php echo $category['id'];?>">
-        <a href="<?php echo $router->generate('category', array('slug' => slug($title)));  ?>"><h3><?php echo $title;?></h3></a>
+        <div class="category<?php echo $subCategory['id'];?>">
+        <a href="<?php echo $router->generate('post', array('slug' => slug($title)));  ?>"><h3><?php echo $subCategory['title'];?></h3></a>
         
         </div>
     <?php    

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 04 Novembre 2016 à 13:22
+-- Généré le :  Ven 04 Novembre 2016 à 17:03
 -- Version du serveur :  10.1.16-MariaDB
 -- Version de PHP :  5.6.24
 
@@ -29,18 +29,21 @@ SET time_zone = "+00:00";
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `parent` int(11) NOT NULL
+  `parent` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Contenu de la table `category`
 --
 
-INSERT INTO `category` (`id`, `title`, `description`, `image`, `parent`) VALUES
-(1, 'Php/Mysql', 'Wanna know everything about the fucking Php and damn MySql. Bring your ass here bitch!', '', 1),
-(2, 'HTML/CSS', 'A delicate moment to remind you the best of ours times with Hugo', '', 2);
+INSERT INTO `category` (`id`, `title`, `slug`, `description`, `image`, `parent`) VALUES
+(0, 'Php/Mysql', 'php-mysql', 'Wanna know everything about the fucking Php and damn MySql. Bring your ass here bitch!', '', NULL),
+(1, 'HTML/CSS', 'html-css', 'A delicate moment to remind you the best of ours times with Hugo', '', NULL),
+(2, 'PHP7', 'php7', '', '', 0),
+(6, 'POO PHP', 'poo-php', '', '', 0);
 
 --
 -- Index pour les tables exportées
@@ -51,7 +54,7 @@ INSERT INTO `category` (`id`, `title`, `description`, `image`, `parent`) VALUES
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `parent` (`parent`);
+  ADD KEY `parent` (`parent`) USING BTREE;
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -61,7 +64,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT pour la table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Contraintes pour les tables exportées
 --
