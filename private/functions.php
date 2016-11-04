@@ -60,12 +60,5 @@ function slug($title) {
 }
 
 
-function childCategory($id){
-    global $db;
-    $q = $db->query("SELECT * FROM category WHERE id =".$id);
-    $subCategories = $q->fetchAll();
-    return $subCategories;
-}
-
 
 ?>
