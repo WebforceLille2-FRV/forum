@@ -28,6 +28,7 @@ function usernameExists($email){
     return $user;
 }
 
+// Function to get all categories
 function getCategory(){
     global $db;
     $q = $db->query("SELECT * FROM category");

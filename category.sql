@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 04 Novembre 2016 à 11:47
+-- Généré le :  Ven 04 Novembre 2016 à 13:22
 -- Version du serveur :  10.1.16-MariaDB
 -- Version de PHP :  5.6.24
 
@@ -39,8 +39,8 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `title`, `description`, `image`, `parent`) VALUES
-(1, 'Php/Mysql', 'Wanna know everything about the fucking Php and damn MySql. Bring your ass here bitch!', '', 0),
-(2, 'HTML/CSS', 'A delicate moment to remind you the best of ours times with Hugo', '', 0);
+(1, 'Php/Mysql', 'Wanna know everything about the fucking Php and damn MySql. Bring your ass here bitch!', '', 1),
+(2, 'HTML/CSS', 'A delicate moment to remind you the best of ours times with Hugo', '', 2);
 
 --
 -- Index pour les tables exportées
@@ -50,7 +50,8 @@ INSERT INTO `category` (`id`, `title`, `description`, `image`, `parent`) VALUES
 -- Index pour la table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `parent` (`parent`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -61,6 +62,16 @@ ALTER TABLE `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `category`
+--
+ALTER TABLE `category`
+  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `category` (`id`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
