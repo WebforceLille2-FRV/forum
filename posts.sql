@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 03 Novembre 2016 à 16:52
+-- Généré le :  Ven 04 Novembre 2016 à 11:47
 -- Version du serveur :  10.1.16-MariaDB
 -- Version de PHP :  5.6.24
 
@@ -28,14 +28,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `content` varchar(255) NOT NULL,
-  `author` varchar(255) NOT NULL,
-  `answer` varchar(255) NOT NULL,
-  `user_img` varchar(255) NOT NULL,
+  `title` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `content` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `author` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `answer` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `user_img` varchar(255) CHARACTER SET latin1 NOT NULL,
   `date` date NOT NULL,
   `category` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Index pour les tables exportées

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 03 Novembre 2016 à 16:47
+-- Généré le :  Ven 04 Novembre 2016 à 11:47
 -- Version du serveur :  10.1.16-MariaDB
 -- Version de PHP :  5.6.24
 
@@ -35,6 +35,14 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Contenu de la table `category`
+--
+
+INSERT INTO `category` (`id`, `title`, `description`, `image`, `parent`) VALUES
+(1, 'Php/Mysql', 'Wanna know everything about the fucking Php and damn MySql. Bring your ass here bitch!', '', 0),
+(2, 'HTML/CSS', 'A delicate moment to remind you the best of ours times with Hugo', '', 0);
+
+--
 -- Index pour les tables exportées
 --
 
@@ -52,7 +60,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT pour la table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

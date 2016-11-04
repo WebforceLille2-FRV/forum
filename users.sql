@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 03 Novembre 2016 à 10:18
--- Version du serveur :  10.1.13-MariaDB
--- Version de PHP :  5.6.23
+-- Généré le :  Ven 04 Novembre 2016 à 11:47
+-- Version du serveur :  10.1.16-MariaDB
+-- Version de PHP :  5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,13 +27,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `username` varchar(80) NOT NULL,
-  `password` varchar(40) NOT NULL,
-  `email` varchar(80) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL,
-  `token` varchar(80) DEFAULT NULL
+  `token` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`, `token`) VALUES
+(1, 'mich', 'test', 'mich@mich.fr', 'user', 'NULL'),
+(2, 'wf3', '$2y$10$I637OYCPwhoc3tx96v6VqOLuHFDZy6cl2XtsjRsmoUIe.fIdu1P8W', 'webforce3@20mail.eu', 'user', NULL);
 
 --
 -- Index pour les tables exportées
@@ -54,7 +62,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
